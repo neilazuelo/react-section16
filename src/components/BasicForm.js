@@ -12,6 +12,7 @@ const BasicForm = (props) => {
     inputBlurHandler: firstNameBlurHandler,
     reset: resetFirstName,
   } = useInput(isNotEmpty);
+
   const {
     value: lastNameValue,
     isValid: lastNameIsValid,
@@ -20,6 +21,7 @@ const BasicForm = (props) => {
     inputBlurHandler: lastNameBlurHandler,
     reset: resetLastName,
   } = useInput(isNotEmpty);
+
   const {
     value: emailValue,
     isValid: emailIsValid,
@@ -50,7 +52,7 @@ const BasicForm = (props) => {
       return;
     }
 
-    console.log('Submitted');
+    console.log("Submitted");
     console.log(firstNameValue, lastNameValue, emailValue);
 
     resetFirstName();
@@ -70,7 +72,9 @@ const BasicForm = (props) => {
             onChange={firstNameChangeHandler}
             onBlurCapture={firstNameBlurHandler}
           />
-          {firstNameHasError && <p className="error-text">Please enter first name</p>}
+          {firstNameHasError && (
+            <p className="error-text">Please enter first name</p>
+          )}
         </div>
         <div className={lastNameClasses}>
           <label htmlFor="name">Last Name</label>
@@ -81,7 +85,9 @@ const BasicForm = (props) => {
             onChange={lastNameChangeHandler}
             onBlur={lastNameBlurHandler}
           />
-          {lastNameHasError && <p className="error-text">Please enter last name</p>}
+          {lastNameHasError && (
+            <p className="error-text">Please enter last name</p>
+          )}
         </div>
       </div>
       <div className={emailClasses}>
